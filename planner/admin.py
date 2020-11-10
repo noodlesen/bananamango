@@ -10,7 +10,7 @@ class PostAdmin(admin.ModelAdmin):
 admin.site.register(Post, PostAdmin)
 
 class IdeaAdmin(admin.ModelAdmin):
-    list_display = ('title', 'post_type')
+    list_display = ('title', 'post_type', 'is_ready')
 
 admin.site.register(Idea, IdeaAdmin)
 

@@ -14,8 +14,9 @@ class Post(models.Model):
 class Idea(models.Model):
     def __str__(self):
         return self.title
-    title = models.CharField(max_length=255)
-    description = models.TextField(default='', blank=True)
+    title = models.CharField(max_length=255, verbose_name='Название')
+    description = models.TextField(default='', blank=True, verbose_name='Описание')
+    is_ready = models.BooleanField(default=False, verbose_name='Готово')
     POST_TYPES = (
         ('recipe', 'RECIPE',),
         ('tip', 'TIP',),
@@ -23,6 +24,14 @@ class Idea(models.Model):
         ('other', 'OTHER')
     )
     post_type = models.CharField(max_length=255, choices=POST_TYPES, default='recipe')
+
+    class Meta:
+        verbose_name = 'Идея'
+        verbose_name_plural = 'Идеи'
+
+    # def get_status(self):
+    #     return self.is_ready
+    # get_status.short_description = 'Готово'
 
 class Resource(models.Model):
     def __str__(self):
