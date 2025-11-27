@@ -1,2 +1,4 @@
 .venv/
 bananamango/settings.py
+.env
+**/.env
